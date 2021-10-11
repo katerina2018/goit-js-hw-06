@@ -13,6 +13,22 @@ const checkOnlyInput = parameter => {
     return arrayInput;
 };
 
+const createResultArray = valueFieldObject => {
+    if (valueFieldObject) {
+        let checkunique = resultArrayElements.map(element => element.email);
+
+        if (!checkunique.includes(valueFieldObject.email)) {
+            resultArrayElements.push(valueFieldObject);
+            alert('Регистрация прошла успешно');
+
+            loginForm.reset();
+            return console.table(resultArrayElements);
+        } else {
+            alert('Такой пользователь уже существует');
+        }
+    }
+};
+
 const createObject = parameter => {
     let valueFieldObject = {};
     for (const item of parameter) {
@@ -23,29 +39,13 @@ const createObject = parameter => {
         valueFieldObject[item.name] = item.value;
     }
     if (parameter.length === Object.keys(valueFieldObject).length) {
-        return valueFieldObject;
+        return createResultArray(valueFieldObject);
     }
-};
-
-const createResultArray = valueFieldObject => {
-    if (valueFieldObject) {
-        let checkunique = resultArrayElements.map(element => element.email);
-
-        if (!checkunique.includes(valueFieldObject.email)) {
-            resultArrayElements.push(valueFieldObject);
-            alert('Регистрация прошла успешно');
-            loginForm.reset();
-        } else {
-            alert('Такой пользователь уже существует');
-        }
-    }
-    return resultArrayElements;
 };
 
 loginForm.addEventListener('submit', event => {
     event.preventDefault();
 
     const resultarrayInput = checkOnlyInput(loginFormElements);
-    const resultvalueFieldObject = createObject(resultarrayInput);
-    console.table(createResultArray(resultvalueFieldObject));
+    createObject(resultarrayInput);
 });
