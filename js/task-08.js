@@ -1,8 +1,3 @@
-//Alt + ↓          Переместить строку вниз
-//Alt + Shift + ↓  Копировать текущую строку вниз
-//Ctrl + F2        Выделить все вхождения текущего слова
-//Alt + Shift + →  Расширить выделение
-
 const loginForm = document.querySelector('.login-form');
 const loginFormElements = Array.from(loginForm.elements);
 let arrayInput = [];
@@ -52,4 +47,5 @@ loginForm.addEventListener('submit', event => {
     const resultarrayInput = checkOnlyInput(loginFormElements);
     const resultvalueFieldObject = createObject(resultarrayInput);
     console.table(createResultArray(resultvalueFieldObject));
+    loginForm.reset();
 });

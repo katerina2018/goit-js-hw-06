@@ -1,3 +1,4 @@
+// вариант 1
 const calculateCategoriesV1 = () => {
     const itemsEl = document.querySelector('#categories');
     const itemEl = Array.from(itemsEl.children);
@@ -10,6 +11,8 @@ const calculateCategoriesV1 = () => {
     }
 };
 // calculateCategoriesV1();
+
+// вариант 2
 
 const calculateCategoriesV2 = () => {
     const itemEl = Array.from(
