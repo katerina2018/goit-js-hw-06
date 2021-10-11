@@ -34,6 +34,7 @@ const createResultArray = valueFieldObject => {
         if (!checkunique.includes(valueFieldObject.email)) {
             resultArrayElements.push(valueFieldObject);
             alert('Регистрация прошла успешно');
+            loginForm.reset();
         } else {
             alert('Такой пользователь уже существует');
         }
@@ -47,5 +48,4 @@ loginForm.addEventListener('submit', event => {
     const resultarrayInput = checkOnlyInput(loginFormElements);
     const resultvalueFieldObject = createObject(resultarrayInput);
     console.table(createResultArray(resultvalueFieldObject));
-    loginForm.reset();
 });
