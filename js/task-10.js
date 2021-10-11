@@ -33,37 +33,37 @@ function getRandomHexColor() {
 
 // вариант 2
 
-// const makeArrayProperty = parameter => {
-//     const arrayProperty = [];
-//     let size = 20;
+const makeArrayProperty = parameter => {
+    const arrayProperty = [];
+    let size = 20;
 
-//     for (let i = 1; i <= parameter; i += 1) {
-//         arrayProperty.push({ size: (size += 10), color: getRandomHexColor() });
-//     }
+    for (let i = 1; i <= parameter; i += 1) {
+        arrayProperty.push({ size: (size += 10), color: getRandomHexColor() });
+    }
 
-//     return arrayProperty;
-// };
+    return arrayProperty;
+};
 
-// function createBoxes(amount) {
-//     destroyBoxes();
-//     const arrayProperty = makeArrayProperty(amount);
-//     let allDiv = '';
-//     for (const element of arrayProperty) {
-//         allDiv += `<div style="width: ${element.size}px; height: ${element.size}px; background-color: ${element.color};"> </div>`;
-//     }
-//     boxesDiv.insertAdjacentHTML('beforeend', allDiv);
-// }
+function createBoxes(amount) {
+    destroyBoxes();
+    const arrayProperty = makeArrayProperty(amount);
+    let allDiv = '';
+    for (const element of arrayProperty) {
+        allDiv += `<div style="width: ${element.size}px; height: ${element.size}px; background-color: ${element.color};"> </div>`;
+    }
+    boxesDiv.insertAdjacentHTML('beforeend', allDiv);
+}
 
-// function destroyBoxes() {
-//     Array.from(boxesDiv.children).forEach(element => {
-//         element.remove();
-//     });
-// }
+function destroyBoxes() {
+    Array.from(boxesDiv.children).forEach(element => {
+        element.remove();
+    });
+}
 
-// createBtn.addEventListener('click', () => {
-//     const counter = document.querySelector('input').value;
+createBtn.addEventListener('click', () => {
+    const counter = document.querySelector('input').value;
 
-//     createBoxes(counter);
-// });
+    createBoxes(counter);
+});
 
-// destroyBtn.addEventListener('click', destroyBoxes);
+destroyBtn.addEventListener('click', destroyBoxes);
