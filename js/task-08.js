@@ -4,13 +4,7 @@ let arrayInput = [];
 const resultArrayElements = [];
 
 const checkOnlyInput = parameter => {
-    let arrayInput = [];
-    for (const element of parameter) {
-        if (element.tagName === 'INPUT') {
-            arrayInput.push(element);
-        }
-    }
-    return arrayInput;
+    return parameter.filter(value => value.tagName === 'INPUT');
 };
 
 const createResultArray = valueFieldObject => {
@@ -47,5 +41,6 @@ loginForm.addEventListener('submit', event => {
     event.preventDefault();
 
     const resultarrayInput = checkOnlyInput(loginFormElements);
+
     createObject(resultarrayInput);
 });
